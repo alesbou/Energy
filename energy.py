@@ -43,3 +43,8 @@ datac["consumptionInt2012"]=datac.Consumption2012*1000000/datac.GenerationMWh201
 datac["consumptionInt2013"]=datac.Consumption2013*1000000/datac.GenerationMWh2013
 datac["consumptionInt2014"]=datac.Consumption2014*1000000/datac.GenerationMWh2014
 datac["consumptionInt2015"]=datac.Consumption2015*1000000/datac.GenerationMWh2015
+
+datac = datac[datac.Consumption2015>0]
+axes = datac.boxplot(column='consumptionInt2015',rot=20,by="Prime_Mover_Description", return_type='axes')
+for ax in axes.values():
+    ax.set_ylim(0, 20000) 
